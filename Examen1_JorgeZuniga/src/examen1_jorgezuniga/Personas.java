@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examen1_jorgezuniga;
 
 import java.util.ArrayList;
@@ -12,19 +8,39 @@ import java.util.ArrayList;
  * @author Alejandro
  */
 public class Personas {
-    private String nombre;
+    private String nombre,Tipo;
     private String sexo;
     private int edad;
-
+    ArrayList <Armas> arma = new ArrayList();
     public Personas() {
     }
 
-    public Personas(String nombre, String sexo, int edad) {
+    public Personas(String nombre, String Tipo, String sexo, int edad,ArrayList arma) {
         this.nombre = nombre;
+        this.Tipo = Tipo;
         this.sexo = sexo;
         this.edad = edad;
+        this.arma = arma;
     }
 
+
+
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
+    }
+
+    public ArrayList<Armas> getArma() {
+        return arma;
+    }
+
+    public void setArma(ArrayList<Armas> arma) {
+        this.arma = arma;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -51,9 +67,8 @@ public class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "nombre=" + nombre + ", sexo=" + sexo + ", edad=" + edad + '}';
+        return "nombre=" + nombre + ", Tipo=" + Tipo + ", sexo=" + sexo + ", edad=" + edad + ", arma=" + arma;
     }
-    
-    
+
     
 }

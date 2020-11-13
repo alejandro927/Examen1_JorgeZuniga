@@ -1,19 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examen1_jorgezuniga;
 
 /**
  *
  * @author Alejandro
  */
-public class Armas {
+public class Armas extends Personas{
     private String tipo;
     private int daño;
 
-    public Armas() {
+    public Armas(){
+    super();
     }
 
     public Armas(String tipo, int daño) {
@@ -39,7 +36,7 @@ public class Armas {
 
     @Override
     public String toString() {
-        return "Armas{" + "tipo=" + tipo + ", da\u00f1o=" + daño + '}';
+        return "Tipo=" + tipo + ", Daño=" + daño;
     }
     
     

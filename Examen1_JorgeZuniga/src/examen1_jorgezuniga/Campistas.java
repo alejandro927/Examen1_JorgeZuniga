@@ -1,19 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examen1_jorgezuniga;
 
 /**
  *
  * @author Alejandro
  */
-public class Campistas {
+public class Campistas extends Personas{
     private String tipo;
     private String estaraVivo;
 
     public Campistas() {
+        super();
     }
 
     public Campistas(String tipo, String estaraVivo) {
