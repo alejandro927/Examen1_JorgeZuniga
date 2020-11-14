@@ -21,12 +21,12 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
 
-        DefaultComboBoxModel modelo
+        DefaultComboBoxModel modelo0
                 = (DefaultComboBoxModel) tipodecampista.getModel();
-        modelo.addElement("Campista");
-        modelo.addElement("El machetero");
+        modelo0.addElement("Campista");
+        modelo0.addElement("El machetero");
 
-        tipodecampista.setModel(modelo);
+        tipodecampista.setModel(modelo0);
 
         DefaultComboBoxModel modelo1
                 = (DefaultComboBoxModel) tipoArma.getModel();
@@ -43,6 +43,31 @@ public class Main extends javax.swing.JFrame {
         modelo2.addElement("Femenino");
         modelo2.addElement("Masculino");
         Sexo.setModel(modelo2);
+        
+        
+        
+        DefaultComboBoxModel modelo3
+                = (DefaultComboBoxModel) tipodecampistaModi1.getModel();
+        modelo3.addElement("Campista");
+        modelo3.addElement("El machetero");
+
+        tipodecampistaModi1.setModel(modelo3);
+
+        DefaultComboBoxModel modelo4
+                = (DefaultComboBoxModel) tipoArmaModi.getModel();
+        modelo4.addElement("Hacha");
+        modelo4.addElement("Pistola");
+        modelo4.addElement("Bate");
+        modelo4.addElement("Pala");
+        modelo4.addElement("Sierra electrica");
+        modelo4.addElement("Putasos");
+        tipoArmaModi.setModel(modelo4);
+
+        DefaultComboBoxModel modelo5
+                = (DefaultComboBoxModel) SexoModi.getModel();
+        modelo5.addElement("Femenino");
+        modelo5.addElement("Masculino");
+        SexoModi.setModel(modelo5);
     }
 
     /**
@@ -77,17 +102,18 @@ public class Main extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         NombreModi = new javax.swing.JTextField();
         EdadModi = new javax.swing.JFormattedTextField();
-        rb_fModi = new javax.swing.JRadioButton();
-        rb_mModi = new javax.swing.JRadioButton();
         tipoArmaModi = new javax.swing.JComboBox<>();
         Modificar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         tipodecampistaModi1 = new javax.swing.JComboBox<>();
         Lista1 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
+        SexoModi = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        Posicion1 = new javax.swing.JFormattedTextField();
         eliminar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        Posicion = new javax.swing.JFormattedTextField();
+        Posicion2 = new javax.swing.JFormattedTextField();
         Lista3 = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JButton();
@@ -176,6 +202,11 @@ public class Main extends javax.swing.JFrame {
         });
         crear.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 133, 69));
 
+        Sexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SexoActionPerformed(evt);
+            }
+        });
         crear.add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 80, -1));
 
         pestanas.addTab("Crear Persona", null, crear, "");
@@ -225,24 +256,6 @@ public class Main extends javax.swing.JFrame {
         });
         editar.add(EdadModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 160, 30));
 
-        rb_fModi.setText("F");
-        rb_fModi.setToolTipText("");
-        rb_fModi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_fModiActionPerformed(evt);
-            }
-        });
-        editar.add(rb_fModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
-
-        rb_mModi.setSelected(true);
-        rb_mModi.setText("M");
-        rb_mModi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_mModiActionPerformed(evt);
-            }
-        });
-        editar.add(rb_mModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
-
         tipoArmaModi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoArmaModiActionPerformed(evt);
@@ -255,6 +268,11 @@ public class Main extends javax.swing.JFrame {
         Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ModificarMouseClicked(evt);
+            }
+        });
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
             }
         });
         editar.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 170, 80));
@@ -281,6 +299,26 @@ public class Main extends javax.swing.JFrame {
         jLabel17.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 204)));
         editar.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 110, 50));
 
+        editar.add(SexoModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 160, -1));
+
+        jLabel21.setBackground(new java.awt.Color(255, 0, 0));
+        jLabel21.setForeground(new java.awt.Color(51, 204, 0));
+        jLabel21.setText("Posicion que desea modificar");
+        jLabel21.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 204)));
+        editar.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, 50));
+
+        try {
+            Posicion1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        Posicion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Posicion1ActionPerformed(evt);
+            }
+        });
+        editar.add(Posicion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 120, 40));
+
         pestanas.addTab("Editar Persona", editar);
 
         eliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -292,16 +330,16 @@ public class Main extends javax.swing.JFrame {
         eliminar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 160, -1));
 
         try {
-            Posicion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#")));
+            Posicion2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        Posicion.addActionListener(new java.awt.event.ActionListener() {
+        Posicion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PosicionActionPerformed(evt);
+                Posicion2ActionPerformed(evt);
             }
         });
-        eliminar.add(Posicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 120, 40));
+        eliminar.add(Posicion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 120, 40));
 
         Lista3.setForeground(new java.awt.Color(0, 204, 204));
         eliminar.add(Lista3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 330, 40));
@@ -317,6 +355,11 @@ public class Main extends javax.swing.JFrame {
         Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EliminarMouseClicked(evt);
+            }
+        });
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
             }
         });
         eliminar.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 170, 80));
@@ -431,14 +474,14 @@ public class Main extends javax.swing.JFrame {
             tipocampista = tipodecampista.getSelectedItem().toString();
             arma.add(new Armas(nombrearma, danoarma));
             if ("Campista".equals(tipocampista)) {
-                Personas cap =  new Personas(nombre, "Campista", sexo, edad, arma);
+                Personas cap = new Personas(nombre, "Campista", sexo, edad, arma);
                 Campistas.add(cap);
                 DefaultComboBoxModel dc = (DefaultComboBoxModel) Lista2.getModel();
                 dc.addElement(cap);
                 Lista2.setModel(dc);
             }
             if ("El machetero".equals(tipocampista)) {
-                Personas mach =  new Personas(nombre, "El machetero", sexo, edad, arma);
+                Personas mach = new Personas(nombre, "El machetero", sexo, edad, arma);
                 machete.add(mach);
                 DefaultComboBoxModel xx = (DefaultComboBoxModel) Lista4.getModel();
                 xx.addElement(mach);
@@ -468,30 +511,68 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_GuardarMouseClicked
 
-    private void rb_fModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_fModiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_fModiActionPerformed
-
-    private void rb_mModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_mModiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_mModiActionPerformed
-
     private void tipoArmaModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoArmaModiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoArmaModiActionPerformed
 
     private void ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarMouseClicked
-        
+
 //modificar
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        String Sexo = "", tipo = "",nombre="",nombrearma="",tipocampita="";
+        int danoarma = 0;
+        ArrayList <Armas> ar = new ArrayList();
+        try {
+            nombre = NombreModi.getText();
+            nombrearma = tipoArmaModi.getSelectedItem().toString();
+            tipocampita = tipodecampistaModi1.getSelectedItem().toString();
+            ((Personas) personas.get(Integer.parseInt(Posicion1.getText()))).setNombre(nombre);
+            ((Personas) personas.get(Integer.parseInt(Posicion1.getText()))).setEdad(Integer.parseInt(EdadModi.getText()));
+            if (SexoModi.getSelectedItem() == "Masculino") {
+                Sexo = "Masculino";
+            }
+            if (SexoModi.getSelectedItem() == "Femenino") {
+                Sexo = "Femenino";
+            }
+            ((Personas) personas.get(Integer.parseInt(Posicion1.getText()))).setSexo(Sexo);
+            if (tipodecampistaModi1.getSelectedItem() == "Campista") {
+                tipo = "Campista";
+            }
+            if (tipodecampistaModi1.getSelectedItem() == "El machetero") {
+                tipo = "El machetero";
+            }
+            ((Personas) personas.get(Integer.parseInt(Posicion1.getText()))).setTipo(tipo);
+            if (tipoArmaModi.getSelectedItem() == "Hacha") {
+                danoarma = 80;
+            }
+            if (tipoArmaModi.getSelectedItem() == "Pistola") {
+                danoarma = 86;
+            }
+            if (tipoArmaModi.getSelectedItem() == "Bate") {
+                danoarma = 75;
+            }
+            if (tipoArmaModi.getSelectedItem() == "Pala") {
+                danoarma = 78;
+            }
+            if (tipoArmaModi.getSelectedItem() == "Sierra electrica") {
+                danoarma = 100;
+            }
+            if (tipoArmaModi.getSelectedItem() == "Putasos") {
+                danoarma = 60;
+            }
+            ar.add(new Armas(nombrearma, danoarma));
+            ((Personas) personas.get(Integer.parseInt(Posicion1.getText()))).setArma(ar);
+            ar.remove(0);
+            JOptionPane.showMessageDialog(this, "Se modifico perfectamente!!");
+            NombreModi.setText("");
+            EdadModi.setText("");
+            SexoModi.setSelectedItem(null);
+            tipodecampistaModi1.setSelectedItem(null);
+            tipoArmaModi.setSelectedItem(null);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "error!!");
+        }
+
+
     }//GEN-LAST:event_ModificarMouseClicked
 
     private void tipodecampistaModi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipodecampistaModi1ActionPerformed
@@ -502,17 +583,31 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EdadModiActionPerformed
 
-    private void PosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PosicionActionPerformed
+    private void Posicion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Posicion2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PosicionActionPerformed
+    }//GEN-LAST:event_Posicion2ActionPerformed
 
     private void EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarMouseClicked
         // Eliminar
-        personas.remove(Integer.parseInt(Posicion.getText()));
+        personas.remove(Integer.parseInt(Posicion2.getText()));
         JOptionPane.showMessageDialog(this, "La persona se elimino correctamente!!");
-        
-        
     }//GEN-LAST:event_EliminarMouseClicked
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void Posicion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Posicion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Posicion1ActionPerformed
+
+    private void SexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SexoActionPerformed
     public void guardar() {
         int edad;
         String nombre, sexo, tipocampista, tipoarma;
@@ -571,8 +666,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton Modificar;
     private javax.swing.JTextField Nombre;
     private javax.swing.JTextField NombreModi;
-    private javax.swing.JFormattedTextField Posicion;
+    private javax.swing.JFormattedTextField Posicion1;
+    private javax.swing.JFormattedTextField Posicion2;
     private javax.swing.JComboBox<String> Sexo;
+    private javax.swing.JComboBox<String> SexoModi;
     private javax.swing.JPanel crear;
     private javax.swing.JPanel editar;
     private javax.swing.JPanel eliminar;
@@ -590,6 +687,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -598,8 +696,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane pestanas;
-    private javax.swing.JRadioButton rb_fModi;
-    private javax.swing.JRadioButton rb_mModi;
     private javax.swing.JComboBox<String> tipoArma;
     private javax.swing.JComboBox<String> tipoArmaModi;
     private javax.swing.JComboBox<String> tipodecampista;
